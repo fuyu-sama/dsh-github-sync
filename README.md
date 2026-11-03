@@ -21,6 +21,14 @@ plugin_manager install_bundle(target: "/绝对路径/dsh-github-sync", enabled: 
 plugin_manager install_bundle(target: "github:fuyu-sama/dsh-github-sync", enabled: true)
 ```
 
+> 注意：`github:` / `https://github.com/...` 这类 git 依赖由 pnpm 调用 **git** 拉取，目标机器必须装好 git 且在 PATH 中（否则可能表现为“退出码 127、无输出”）。没有 git 时改用 tarball 地址，pnpm 会直接用 HTTPS 下载：
+>
+> ```text
+> plugin_manager install_bundle(target: "https://codeload.github.com/fuyu-sama/dsh-github-sync/tar.gz/refs/heads/master", enabled: true)
+> ```
+>
+> 或者先 `git clone` / 下载解压到本地目录，再用上面的绝对路径方式安装。
+
 安装后打开 **Plugins → GitHub 同步**：
 
 1. 填仓库地址（建议私有仓库，可以是空仓库）：`git@github.com:you/dsh-config.git` 或 `https://github.com/you/dsh-config.git`。
