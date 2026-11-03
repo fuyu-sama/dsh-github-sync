@@ -1,0 +1,14 @@
+# dsh-github-sync bundle patch.
+#
+# Applied as ONE insert over the empty profile root when this package is
+# installed as a profile bundle (it declares `dsh.bundle.patch`). The Host half
+# mounts here: it registers the `/dsh-github-sync` JSON routes, the `/dsh-sync`
+# human command, and the optional startup pull. The Client half ships through
+# the package.json `dsh.client` declaration plus `exports["./client"]`; it adds
+# the "GitHub Sync" tab to the Plugins page.
+#
+# The row references the package's own name, so the Loader resolves it once the
+# profile declares this bundle.
+- insert:
+    - id: dsh-github-sync
+      name: 'dsh-github-sync'

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "GitHub Sync",
+    "description": "Sync DSH configuration, plugins, agent presets and skills with a GitHub repository."
+  }
+}
